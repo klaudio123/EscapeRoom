@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Enigmi - Modelli di Riferimento</title>
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../JS/Script.js"></script>
+</head>
+<body>
+    <div class="container" style="padding: 100px">
+        <h1>Enigmi - Modelli di Riferimento</h1>
+        <div class="fixed-info">
+            <div>Tempo trascorso: <span id="timer">0:00</span></div>
+            <div>Indizi rimasti: <span id="indizi-globali">3</span></div>
+        </div>
+
+        <!-- Enigma 1 -->
+        <div class="enigma" id="enigma1">
+            <h2>Enigma 1: Ordina i livelli OSI</h2>
+            <p>Trascina i livelli per metterli in ordine dal livello 7 (Applicazione) al livello 1 (Fisico):</p>
+            <ul id="lista-osi" class="sortable">
+                <li draggable="true">Fisico</li>
+                <li draggable="true">Applicazione</li>
+                <li draggable="true">Rete</li>
+                <li draggable="true">Collegamento Dati</li>
+                <li draggable="true">Sessione</li>
+                <li draggable="true">Presentazione</li>
+                <li draggable="true">Trasporto</li>
+            </ul>
+            <button onclick="controllaEnigma1()">Verifica</button>
+            <div class="indizi">
+                <button onclick="mostraIndizio(1)">Indizio</button>
+                <p id="indizio1" class="hidden">Il livello 7 è dove lavora HTTP.</p>
+                <p id="indizio2" class="hidden">Il livello 3 gestisce l'instradamento IP.</p>
+                <p id="indizio3" class="hidden">I livelli 1-2 gestiscono il mezzo fisico.</p>
+            </div>
+            <p id="feedback1"></p>
+        </div>
+
+        <!-- Enigma 2 -->
+        <div class="enigma" id="enigma2">
+            <h2>Enigma 2: L'incapsulamento dei dati</h2>
+            <p>Nel processo di incapsulamento, i dati vengono "avvolti" con informazioni aggiuntive in ogni livello. Trascina i vari pezzi del pacchetto nei corretti livelli TCP/IP:</p>
+            <ul id="tcpip-targets">
+                <li data-categoria="Applicazione">Applicazione: <span class="dropzone" data-gruppo="Applicazione"></span></li>
+                <li data-categoria="Trasporto">Trasporto: <span class="dropzone" data-gruppo="Trasporto"></span></li>
+                <li data-categoria="Internet">Internet: <span class="dropzone" data-gruppo="Internet"></span></li>
+                <li data-categoria="Accesso Rete">Accesso Rete: <span class="dropzone" data-gruppo="Accesso Rete"></span></li>
+            </ul>
+            <div id="blocchi-tcpip">
+                <div draggable="true" class="draggable" data-gruppo="Applicazione">Dati utente</div>
+                <div draggable="true" class="draggable" data-gruppo="Trasporto">Segmento</div>
+                <div draggable="true" class="draggable" data-gruppo="Internet">Pacchetto</div>
+                <div draggable="true" class="draggable" data-gruppo="Accesso Rete">Frame</div>
+            </div>
+            <button onclick="controllaEnigma2()">Verifica</button>
+            <div class="indizi">
+                <button onclick="mostraIndizio(2)">Indizio</button>
+                <p id="indizio4" class="hidden">I dati utente vengono incapsulati nei vari livelli di protocollo.</p>
+                <p id="indizio5" class="hidden">Un segmento è il risultato dell'incapsulamento a livello Trasporto.</p>
+                <p id="indizio6" class="hidden">Il frame è la struttura finale che include informazioni per il trasferimento fisico.</p>
+            </div>
+            <p id="feedback2"></p>
+        </div>
+
+
+        <!-- Enigma 3 -->
+        <div class="enigma" id="enigma3">
+            <h2>Enigma 3: L'impiccato del PDU</h2>
+            <p>Indovina la parola legata al mondo della PDU.</p>
+            <p id="wordDisplay" style="font-size: 2rem; letter-spacing: 10px;">_ _ _ _ _</p>
+            
+            <input type="text" id="guessInput" maxlength="1" placeholder="Inserisci una lettera">
+            <button onclick="controllaEnigma3()">Prova</button>
+            <p class="indizi">
+                <button id="usaIndizio" onclick="usaIndizio()">Usa indizio</button>
+            </p>
+            <p id="feedback3"></p>
+        </div>        
+    </div>
+</body>
+</html>

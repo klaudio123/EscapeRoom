@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #121212;
+    color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 3rem;
+    background: #1e2a3d;
+    border-radius: 20px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+    border: 2px solid #3498db;
+    overflow: hidden;
+}
+
+.fixed-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    box-shadow: none;
+    border: none;
+}
+
+p {
+    text-align: center;
+}
+
+h1, h2 {
+    color: #3498db;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(52, 152, 219, 0.8), 0 0 12px rgba(52, 152, 219, 0.7);
+    font-size: 2.5rem;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #2980b9;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.enigma {
+    margin-bottom: 3rem;
+    background: #233140;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #3498db;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+ul.sortable {
+    list-style: none;
+    padding: 0;
+    border: 2px solid #7f8c8d;
+    border-radius: 12px;
+    background-color: #2c3e50;
+    margin: 0;
+}
+
+ul.sortable li {
+    padding: 15px;
+    background-color: #34495e;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: move;
+    font-family: 'Courier New', monospace;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+ul.sortable li:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+.dropzone {
+    display: inline-block;
+    min-width: 150px;
+    min-height: 40px;
+    padding: 15px;
+    margin-left: 20px;
+    background-color: #34495e;
+    border: 3px dashed #7f8c8d;
+    border-radius: 12px;
+    color: #ecf0f1;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.dropzone:hover {
+    background-color: #1abc9c;
+    border-color: #16a085;
+}
+
+.draggable {
+    display: inline-block;
+    margin: 12px;
+    padding: 15px;
+    background-color: #e74c3c;
+    border: 2px solid #c0392b;
+    border-radius: 10px;
+    cursor: grab;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.draggable:active {
+    transform: scale(1.1);
+}
+
+.indizi {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #95a5a6;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.correct {
+    color: #2ecc71;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(46, 204, 113, 0.8);
+    font-size: 1.4rem;
+}
+
+.wrong {
+    color: #e74c3c;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(231, 76, 60, 0.8);
+    font-size: 1.4rem;
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    border: 2px solid #7f8c8d;
+    border-radius: 12px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+
+input[type="text"]::placeholder {
+    color: #bdc3c7;
+}
+
+/* === ENIGMA 3 - IMPICCATO === */
+
+#enigma3 {
+    position: relative;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#wordDisplay {
+    font-size: 3rem;
+    letter-spacing: 16px;
+    margin: 30px auto;
+    color: #f1c40f;
+    font-weight: bold;
+    text-shadow: 0 0 5px #f39c12, 0 0 10px #f39c12;
+}
+
+#attempts {
+    font-size: 2rem;
+    color: #e74c3c;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.7);
+    display: inline-block;
+    margin-top: 15px;
+}
+
+#feedback {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    color: #ecf0f1;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+#guessInput {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
